@@ -1,0 +1,366 @@
+vscode extension folder in linux
+usr/share/code/resources/app/extensions
+
+.......................................
+how to install Lamp in linux
+1. sudo apt install apache2
+1. Install Apache
+
+To install Apache you must install the Metapackage apache2. This can be done by searching for and installing in the Software Centre, or by running the following command.
+
+
+2. sudo apt install mysql-server
+2. Install MySQL
+
+To install MySQL you must install the Metapackage mysql-server. This can be done by searching for and installing in the Software Centre, or by running the following command.
+
+
+3. sudo apt install php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-gd php-mysql php-mbstring php-xml libapache2-mod-php
+3. Install PHP
+
+PHP requires a few packages to work as you expect, so we recommend the following command.
+
+
+4. sudo service apache2 restart
+4. Restart Server
+
+Your server should restart Apache automatically after the installation of both MySQL and PHP. If it doesn't, execute this command.
+
+
+5. open a web briswer and type localhost if it says it work you are good to go
+5. Check Apache
+
+Open a web browser and navigate to http://localhost/. You should see a message saying It works!
+
+
+6. Check PHP
+
+You can check your PHP by executing any PHP file from within /var/www/. Alternatively you can execute the following command, which will make PHP run the code without the need for creating a file .
+
+sudo apachectl stop
+
+xampp apache web server stop type this in terminal
+
+cd /opt/lampp/
+sudo ./manager-linux-x64.run
+
+
+start xampp
+sudo /opt/lampp/lampp start
+
+stop xampp
+sudo /opt/lampp/lampp stop
+
+
+
+===========================================
+incase if the mysql is not working  
+1. service mysql status
+2.service mysql stop
+3. sudo service apache2 stop
+
+now connect from sudo /opt/lampp/lampp start
+
+=================================================================
+
+   $ service mysql status
+
+if service down just does this :
+
+    $ service mysql start
+
+and for stopping my service that :
+
+    $ service mysql stop
+
+
+====================================================
+python problems
+
+
+
+On Ubuntu it is advised to use the distributions repository. So installing python-mysqldb should be straight forward:
+
+sudo apt-get install python-mysqldb
+
+If you actually want to use pip to install, which is as mentioned before not the suggested path but possible, please have a look at this previously asked question and answer: pip install mysql-python fails with EnvironmentError: mysql_config not found
+
+Here is a very comprehensive guide by the developer: http://mysql-python.blogspot.no/2012/11/is-mysqldb-hard-to-install.html
+
+To get all the prerequisites for python-mysqld to install it using pip (which you will want to do if you are using virtualenv), run this:
+
+sudo apt-get install build-essential python-dev libmysqlclient-dev
+
+https://github.com/bradtraversy/part_manager/blob/master/README.md
+
+=========================================================================
+to make android studio fast when building app
+
+
+Providing an active internet connection worked for me.
+
+To build gradle offline,
+
+For Windows,
+
+Go to File -> Settings.
+
+And open the 'Build,Execution,Deployment'. Then open the
+
+Build Tools -> Gradle
+
+Then check the box -> Offline work below.
+
+Click the OK button.
+
+For Mac OS,
+
+go to Android Studio -> Preferences, and the rest is the same.
+    flutter packages pub run build_runner build
+
+
+
+--------------- if you have watch list error vsc
+type this in terminal
+ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+
+linux mint error on E
+sudo rm -rf /var/lib/apt/lists/*
+
+erro in install node, npm, angular
+npm cache clean --force
+npm install -g @angular/cli@latest
+
+install mongo
+
+
+You need to first uninstall the mongodb, you can use:
+
+sudo apt-get purge mongodb-org*
+
+Remove the folders
+
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+
+After this, install mongodb through the following commands:
+
+sudo apt-get install mongodb
+
+And then update:
+
+sudo apt-get update
+
+You are done with the installation of mongodb. You can check it by using the below command:
+
+mongo --version
+
+
+
+start mongodb
+
+sudo systemctl start mongodb
+
+stop mongodb
+sudo systemctl stop mongodb
+
+start angular
+ng serve
+
+start mongo serve to port 3000
+npm start
+
+generate module and routing
+ng g m account --routing
+
+generate compoent inside folder
+ng g c layout --flat
+
+
+
+
+mongo server
+
+1.sudo mongod --dbpath=/var/lib/mongodb 
+2. mongo .........to access the mongodb Shell.
+
+
+***********************************************************************
+
+to see mongo file location
+/etc/mongod.conf
+
+or
+
+grep -i dbPath /etc/mongod.conf
+
+
+to  see the database
+/var/lib/mongodb
+********************************************************************
+https://www.djamware.com/post/5d88cb43e7939eec17dc4c89/mean-stack-angular-8-tutorial-build-a-simple-blog-cms
+
+
+
+retrieve firebase code
+https://medium.com/firebase-tips-tricks/how-to-use-cloud-firestore-in-flutter-9ea80593ca40
+
+
+https://www.youtube.com/watch?v=RV868-R4F2Y
+
+
+
+https://www.positronx.io/angular-jwt-user-authentication-tutorial/
+https://www.techiediaries.com/angular-9-8-mean-stack-authentication-tutorial-and-example-with-node-and-mongodb/
+
+
+start mongodb 
+sudo mongod --dbpath /var/lib/mongo/data/db &
+
+
+https://stackoverflow.com/questions/29554521/uninstall-mongodb-from-ubuntu
+
+https://www.anintegratedworld.com/uninstall-mongodb-in-ubuntu-via-command-line-in-3-easy-steps/
+
+https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu-18.04/
+
+
+
+
+how to install mongodb full working
+
+1. sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+
+2. echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+
+3. sudo apt-get update
+
+4. sudo apt-get install -y mongodb-org
+
+5. sudo systemctl start mongod
+6. sudo systemctl enable mongod
+7. sudo netstat -plntu
+8. mongo
+
+9.. If you get error Failed global initialization: BadValue Invalid or no user locale set. Please ensure LANG and/or LC_* environment variables are set correctly, try the command:
+
+export LC_ALL=C
+mongo
+
+10. Switch to the database admin
+
+Once you`re in the MongoDB shell, switch to the database named admin:
+
+use admin
+
+11.  Create the root user
+
+Create the root user with this command :
+
+db.createUser({user:"admin", pwd:"admin123", roles:[{role:"root", db:"admin"}]})
+
+12. Now type exit to exit from MongoDB shell.
+
+exit
+
+And you are back on the Linux shell.
+13.Enable MongoDB authentication
+
+Edit the mongodb service file '/lib/systemd/system/mongod.service' with your editor.
+
+sudo nano /lib/systemd/system/mongod.service
+On the 'ExecStart' line 9, add the new option '--auth'.
+
+ExecStart=/usr/bin/mongod --auth --config /etc/mongod.conf
+
+Reload the systemd service:
+
+sudo systemctl daemon-reload
+
+Step 5 - Restart MongoDB and try to connect
+
+Now restart MongoDB and connect with the user created.
+
+sudo service mongod restart
+
+and connect to the MongoDB shell with this command:
+
+mongo -u admin -p admin123 --authenticationDatabase admin
+
+Enable external access and configure the UFW Firewall
+
+UFW is the default firewall in Ubuntu. In this chapter, I will show how to configure UFW to allow external access to MongoDB.
+
+Check the UFW status
+
+sudo ufw status
+
+When the result is: 
+
+Status: inactive
+
+Enable UFW with this command and open the SSH port first if connected by SSH:
+
+sudo ufw allow ssh
+sudo ufw enable
+
+For security reasons, you should allow access to the MongoDB port 27017 only from IP addresses that need to access the database. By default, localhost is always able to access it, so no need to open the MongoDB port for IP 127.0.0.1.
+
+UFW Firewall Syntax
+
+sudo ufw allow from <target> to <destination> port <port number>
+
+Open MongoDB Port in UFW
+
+To allow access from external IP 192.168.1.10 to MongoDB, use this command:
+
+sudo ufw allow from 192.168.1.10 to any port 27017
+
+Replace the IP address in the above command with the external Ip you want to allow access to MongoDB.
+
+If you want to open the MongoDB port for any IP, e.g. in case you run it in a local network and all systems in that network shall be able to access MongoDB, then use this command:
+
+sudo ufw allow 27017
+
+Check the status of the UFW firewall with this command:
+
+sudo ufw status
+
+MongoDB listens to localhost by default, to make the database accessible from outside, we have to reconfigure it to listen on the server IP address too.
+
+Open the mongod.conf file in nano editor:
+
+sudo nano /etc/mongod.conf
+
+and add the IP address of the server in the bind_ip line like this:
+
+# network interfaces
+net:
+ port: 27017
+ bindIp: 127.0.0.1,192,168.1.100
+
+Replace 192.168.1.100 with the IP of your server, then restart MongoDB to apply the changes.
+https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu-18.04/
+
+
+delete database from mongodb
+
+Following is the explanation for each mongodb command we executed above
+
+    1. show dbs:  there are three databases. We shall delete tutorialkart database in this demonstration.
+    2. use tutorialkart:  switched to tutorialkart database.
+    3. db.dropDatabase():  drops the database that is currently in use i.e., tutorialkart database.
+    4. show dbs:   now there are only two databases, because tutorialkart database is no more present.
+
+
+https://angular.io/cli/generate
+
+
+port been use 
+lsof -i tcp:3000
+
+kill -9 5805
+
+install electron
+sudo npm install -g electron@latest --unsafe-perm=true --allow-root
